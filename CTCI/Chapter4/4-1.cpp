@@ -9,8 +9,8 @@
 
 struct node {
   enum class state {UNVISITED, VISITED};
-  node char(value): val(val) {}
-  char val
+  node char(value): val(val) {};
+  char val;
   state state = state::UNVISITED;
   std::vector<node*> adjacent;
 };
