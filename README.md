@@ -4,6 +4,6 @@ Source code for programming questions done personally and on Don Mills Online Ju
 
 See https://dmoj.ca/user/edwardren
 
-Tags such as (Good_X.x) in ./CTCL/ are memorable questions with intelligent solutions.
+Tags such as (Good_X.x) in ./CTCI/ are memorable questions with intelligent solutions.
 
-Some solutions in ./CTCL/ have multiple functions that implement different solutions from my own attempts and coding the optimal solution from the answer book.
+Some solutions in ./CTCI/ have multiple functions that implement different solutions from my own attempts and coding the optimal solution from the answer book.

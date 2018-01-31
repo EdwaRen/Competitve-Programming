@@ -8,7 +8,7 @@ struct TreeNode {
   TreeNode* right;
 };
 
-int checkBst(TreeNode a, int min, int max) {
+int checkBst(TreeNode* a, int min, int max) {
   if (a == NULL) {
     return true;
   }
