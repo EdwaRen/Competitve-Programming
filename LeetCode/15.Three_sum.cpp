@@ -20,7 +20,6 @@ vector<vector<int>> threeSum(vector<int>& nums) {
             solution.push_back(nums[r]);
             solution.push_back(nums[l]);
             sums.push_back(solution);
-
           }
         }
       } else if (current_sum < 0) {
