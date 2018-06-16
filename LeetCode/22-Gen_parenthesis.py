@@ -1,5 +1,4 @@
 class Solution:
-
     def generateParenthesis(self, input):
         ans  = []
         def backtrack(M, l, r):
@@ -11,7 +10,7 @@ class Solution:
             if l > r:
                 backtrack(M+')', l, r+1)
         backtrack('', 0, 0)
-        print("answer", ans)
+        print( ans)
 
 a = Solution()
 a.generateParenthesis(1)
