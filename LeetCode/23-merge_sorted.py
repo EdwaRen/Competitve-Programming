@@ -3,32 +3,46 @@ class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
-import pprint
-from queue import PriorityQueue
 
 class Solution(object):
     def printList(self, list):
         while list:
             print(list.val)
+            list = list.next
 
     def mergeKLists(self, lists):
-        p_queue = PriorityQueue()
-        for h in lists:
-            if h:
-                print(h.val, h)
-                p_queue.put((h.val, h.next))
-        print("p quere done")
-        head = cur = ListNode(-1)
-        while not p_queue.empty():
-            p = p_queue.get()
-            print(p)
-            val = p[0]
-            node = p[1]
-            cur.next = node
-            node = node.next
-            if node:
-                p_queue.put(node.val, node)
-        self.printList(head)
+        amount = len(lists)
+        interval = 1
+        while interval < amount:
+            for i in range(0, amount - interval, interval * 2):
+                lists[i] = self.mergeTwoLists(lists[i], lists[i + interval])
+            interval *= 2
+        return lists[0] if amount > 0 else lists
+
+    def mergeTwoLists(self, list1, list2):
+        a = list1
+        b = list2
+        c = d = ListNode(0)
+        while not (a== None and b == None):
+            if a == None:
+                c.next = b
+                b = b.next
+            elif b == None:
+                c.next = a
+                a = a.next
+            else:
+                if a.val < b.val:
+                    c.next = a
+                    a = a.next
+                else:
+                    c.next = b
+                    b = b.next
+            c=c.next
+
+        # self.printList(d.next)
+        return d.next
+        pass
+
 
 a = Solution()
 b = ListNode(1)
