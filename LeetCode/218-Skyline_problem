@@ -1,0 +1,48 @@
+from operator import itemgetter
+class Solution(object):
+    def getSkyline(self, buildings):
+        h_diff = []
+        for b in buildings:
+            h_diff.append([b[0], b[2], 's'])
+            h_diff.append([b[1], b[2], 'e'])
+
+        # Stable sorting so 's' is first in duplicate cases
+        b_sort = sorted(h_diff, key=itemgetter(2))[::-1]
+        b_sort = sorted(b_sort, key=itemgetter(1))
+        b_sort = sorted(b_sort, key=itemgetter(0))
+        # print(b_sort)
+        h = {}
+        max = 0
+        out = []
+        for b in b_sort:
+            if b[2] == 's':
+                if b[1] not in h:
+                    h[b[1]] = []
+                h[b[1]].append(b[1])
+                if b[1] > max:
+                    max = b[1]
+                    out.append([b[0], max])
+            elif b[2] == 'e':
+                h[b[1]].pop()
+                if len(h[b[1]]) == 0:
+                    del h[b[1]]
+                max_cur = 0
+                for key in h.keys():
+                    if key > max_cur:
+                        max_cur = key
+                if max_cur != max:
+                    out.append([b[0], max_cur])
+                    max = max_cur
+        res = []
+        out.append([-1, -1])
+        for i in range(len(out)-1):
+            if out[i][0] != out[i+1][0]:
+                res.append(out[i])
+        # print(res)
+        return res
+
+a = Solution()
+b = [ [2, 9, 10], [3, 7, 15], [5, 12, 12], [15, 20, 10], [19, 24, 8] ]
+b = [[0, 2, 3], [2, 5, 3]]
+# b = [[1,2,1],[1,2,2],[1,2,3]]
+print(a.getSkyline(b))
