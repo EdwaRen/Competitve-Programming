@@ -1,0 +1,28 @@
+class Solution(object):
+    def palindromePairs(self, words):
+        res = []
+        word_dict = {word: i for i, word in enumerate(words)}
+
+        for word, i in word_dict.items():
+
+            for j in range(len(word)+1):
+                pre = word[:j]
+                post = word[j:]
+
+                if pre == pre[::-1] and post[::-1] in word_dict:
+
+                    if post[::-1] != word:
+                        res.append([word_dict[post[::-1]], i])
+
+                if post == post[::-1] and j != len(word) and pre[::-1] in word_dict:
+
+                    if pre[::-1] !=word :
+                        res.append([i,word_dict[pre[::-1]]])
+
+        return res
+
+a = Solution()
+b = ["a", ""]
+b = ["abcd", "dcba", "lls", "s", "sssll"]
+# b =["bat", "tab", "cat"]
+print(a.palindromePairs(b))
