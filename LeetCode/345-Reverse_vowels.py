@@ -15,7 +15,6 @@ class Solution(object):
             start+=1
             end-=1
 
-
         return "".join(res)
 
     def reverseVowels_old(self, s):

@@ -4,7 +4,7 @@ class Solution(object):
         mask = 0
         for k in xrange(30, -1, -1)
             prefix = set()
-            mask = mask | 1 << k
+            mask |= 1 << k
             for i in nums:
                 prefix.add(i&mask)
             try_max = max | 1 << k
