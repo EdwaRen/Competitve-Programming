@@ -1,30 +1,45 @@
 class Solution(object):
+    def wordBreak_old(self, s, wordDict):
+        dp = [False]*(len(s)+1)
+        dp[0] = True
+        for i in range(len(s)):
+            for j in range(i, len(s)):
+                if dp[i] and s[i:j+1] in wordDict:
+                    dp[j+1] = True
+        return dp[-1]
+
     def wordBreak(self, s, wordDict):
+        if self.wordBreak_old(s, wordDict) == False:
+            return []
+
         dp = [[] for i in range(len(s)+1)]
-        # print(dp, len(s))
-        dp[0] = ['']
-        for i in range(len(s)+1):
-            # print("i iterate", dp)
+        def wordBreak_recurse( s, wordDict, start):
+            if len(dp[start]) > 0:
+                return dp[start]
             temp = []
 
-            for j in range(i, len(s)+1):
-                if s[i:j] in wordDict and len(dp[i])>=1:
+            if start == len(s):
+                temp.append("")
 
-                    if dp[i] != ['']:
-                        for k in dp[i]:
-                            # print("adding k", k, dp[i])
-                            temp.append( k + " " +  s[i:j] )
-                    else:
-                        temp.append( s[i:j])
-                    print("adding", i, j, s[i:j], dp[j], dp)
-            dp[i] = temp
-        print("dp final", dp)
-        return dp[len(s)]
+            for j in range(start+1, len(s)+1):
+                if s[start:j] in wordDict:
+                    suffix = wordBreak_recurse(s, wordDict, j)
+                    for k in suffix:
+                        space = " " if k != '' else ''
+                        temp.append(s[start:j] +space + k)
+
+            dp[start] = temp
+            return temp
+
+        return wordBreak_recurse(s, wordDict, 0)
+
 a = Solution()
 b = "catsanddog"
 c = ["cat", "cats", "and", "sand", "dog"]
 b = "pineapplepenapple"
-c = ["apple", "pen", "applepen", "pine", "pineapple"]
+c = ["apple", "pen", "applepen", "pine", "pineapple", 'posdpaod']
+# b = 'aaaabaaaa'
+# c = ['a', 'aa', 'aaaa']
 print(a.wordBreak(b, c))
 
 # [
