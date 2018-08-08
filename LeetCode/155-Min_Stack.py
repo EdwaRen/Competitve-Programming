@@ -2,11 +2,11 @@ import math
 
 class MinStack:
 
-
     def __init__(self):
         self.min = None
         self.arr = []
         self.minArr = []
+
     def push(self, x):
         self.arr.append(x)
         if self.minArr:
