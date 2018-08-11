@@ -9,7 +9,6 @@ class Solution:
         cur = head
         prev = None
         while cur != None:
-            print("cur info", cur.val)
             next_cur = cur.next
             cur.next = prev
             prev = cur
