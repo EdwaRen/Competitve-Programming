@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9c6ab33-af4e-46c7-aaf4-ddc4f7521a69" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../Mei/Compliance/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Mei/Compliance/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,14 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
+            <state relative-caret-position="622">
               <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="change_form.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -89,18 +99,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests_manifest_request.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/tests/tests_manifest_request.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-87">
-              <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/models.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -147,11 +145,11 @@
         <option value="$PROJECT_DIR$/../Mei/Compliance/static/Compliance/css/styles.css" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/static/Compliance/js/renderjson.js" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/examples/play_manifest.py" />
-        <option value="$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html" />
         <option value="$PROJECT_DIR$/../Mei/fabfile.py" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/tests/tests_manifest_request.py" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/views.py" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/admin.py" />
+        <option value="$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html" />
       </list>
     </option>
   </component>
@@ -181,6 +179,39 @@
             <path>
               <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="Compliance" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="Compliance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -257,7 +288,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969843" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -346,13 +376,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Mei/fabfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2420">
@@ -432,11 +455,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Mei/Compliance/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="622">
           <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
