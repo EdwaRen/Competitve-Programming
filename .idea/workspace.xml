@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c6ab33-af4e-46c7-aaf4-ddc4f7521a69" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/LeetCode/49-Group_Anagrams.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Mei/Compliance/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Mei/Compliance/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mei/Compliance/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Mei/Compliance/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="668" column="19" selection-start-line="668" selection-start-column="13" selection-end-line="668" selection-end-column="19" />
+            <state relative-caret-position="502">
+              <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -26,31 +25,65 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Mei/OpenSource/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="740">
+              <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Mei/OpenSource/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-420" />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="8" selection-end-column="13" />
+            <state relative-caret-position="262">
+              <caret line="199" column="20" selection-start-line="199" selection-start-column="20" selection-end-line="199" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="filters.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/filters.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="context.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/context.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/apps.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fabfile.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/fabfile.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2420">
-              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="262">
+              <caret line="435" column="47" selection-start-line="435" selection-start-column="47" selection-end-line="435" selection-end-column="47" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,53 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renderjson.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/static/Compliance/js/renderjson.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Mei/Compliance/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2862">
-              <caret line="254" column="14" selection-start-line="254" selection-start-column="4" selection-end-line="254" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="change_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/static/Compliance/css/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="play_manifest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Mei/Compliance/examples/play_manifest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="8" column="54" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -133,6 +124,11 @@
       <find>jenkins complete</find>
       <find>inline</find>
       <find>print</find>
+      <find>licenseAdmin</find>
+      <find>licenseoverr</find>
+      <find>licenseover</find>
+      <find>licenseoverride</find>
+      <find>licenseoverrideadmin</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -154,8 +150,8 @@
         <option value="$PROJECT_DIR$/../Mei/Compliance/templates/admin/change_form.html" />
         <option value="$PROJECT_DIR$/../Mei/fabfile.py" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/tests/tests_manifest_request.py" />
-        <option value="$PROJECT_DIR$/../Mei/Compliance/admin.py" />
         <option value="$PROJECT_DIR$/../Mei/Compliance/views.py" />
+        <option value="$PROJECT_DIR$/../Mei/Compliance/admin.py" />
       </list>
     </option>
   </component>
@@ -192,6 +188,11 @@
               <item name="Mei" type="462c0819:PsiDirectoryNode" />
               <item name="Compliance" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Code Models" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mei" type="462c0819:PsiDirectoryNode" />
+              <item name="OpenSource" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -362,16 +363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2862">
-          <caret line="254" column="14" selection-start-line="254" selection-start-column="4" selection-end-line="254" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Mei/Compliance/tests/tests_manifest_request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87">
@@ -382,27 +373,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/admin.py">
+    <entry file="file://$PROJECT_DIR$/../Mei/OpenSource/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
-          <caret line="668" column="19" selection-start-line="668" selection-start-column="13" selection-end-line="668" selection-end-column="19" />
+          <caret line="435" column="47" selection-start-line="435" selection-start-column="47" selection-end-line="435" selection-end-column="47" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Mei/Compliance/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="8" selection-end-column="13" />
+        <state relative-caret-position="262">
+          <caret line="199" column="20" selection-start-line="199" selection-start-column="20" selection-end-line="199" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/views.py">
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="160">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/context.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/OpenSource/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Mei/Compliance/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
