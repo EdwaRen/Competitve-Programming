@@ -1,3 +1,5 @@
+import Queue
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -7,32 +9,26 @@ class TreeNode(object):
 
 class Solution(object):
 
-    def levelOrderRecurse(self, node):
-
-        if node == None:
-            return [[]]
-
-        def concat(l, r):
-            new = []
-            for i in range(max(len(l), len(r))):
-                if i < len(l) and i < len(r):
-                    new.append(l[i]+r[i])
-                elif i < len(l):
-                    new.append(l[i])
-                elif i < len(r):
-                    new.append(r[i])
-            return new
-        left = self.levelOrderRecurse(node.left)
-        right = self.levelOrderRecurse(node.right)
-        new = concat(left, right)
-        res = [[node.val]] +new
-        #print("res of ", node.val, res)
-        #print("new", left)
-        return res
-
     def levelOrder(self, node):
-        res = self.levelOrderRecurse(node)
-        return res[:-1]
+        if node == None:
+            return []
+        q = Queue.Queue()
+        q.put(node)
+        res = [[node.val]]
+        while q.empty() == False:
+            cur_level = q.qsize()
+            level_list = []
+            for i in range(cur_level):
+                cur = q.get()
+                if cur.left != None:
+                    q.put(cur.left)
+                    level_list.append(cur.left.val)
+                if cur.right != None:
+                    q.put(cur.right)
+                    level_list.append(cur.right.val)
+            if level_list != []:
+                res.append(level_list)
+        return res
 
 s = Solution()
 a = TreeNode(3)
@@ -43,11 +39,11 @@ e = TreeNode(7)
 f = TreeNode(2)
 g = TreeNode(1)
 a.left = b
-b.left = TreeNode(4)
+# b.left = TreeNode(4)
 a.right = c
 c.left = d
 c.right = e
-e.right = f
-f.left = g
+# e.right = f
+# f.left = g
 
 print(s.levelOrder(a))
