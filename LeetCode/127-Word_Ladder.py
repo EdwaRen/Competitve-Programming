@@ -1,38 +1,31 @@
-import queue
-
+import Queue as queue
 
 class Solution:
     def ladderLength(self, beginWord, endWord, wordList):
-        def valid_change(a, b):
-            arr = [0]*26
-            woops = 0
-            for i in range(len(a)):
-                if a[i] != b[i]:
-                    woops+=1
-            return woops == 1 and len(a) == len(b)
-
+        alphabet = [str(unichr(i)) for i in range(97, 124)]
         wordstack = {i: i for i in wordList}
+        if beginWord in wordstack:
+            del wordstack[beginWord]
         q = queue.Queue()
         q.put(beginWord)
         dist = 1
-        #print("valid mist", valid_change("miss", "mist"))
+
         while q.empty() == False:
             size = q.qsize()
             for i in range(size):
-                temp = q.get()
-                #print(temp, wordstack)
-                wordstacktemp = dict(wordstack)
-                for i in wordstacktemp:
-                    #if i == "miss":
-                        #print("miss in stack", i, temp, wordstack)
-                        #print("miss in stack", i in wordstack, valid_change(i, temp))
-
-                    if i in wordstack and valid_change(i, temp):
-                        #print("put in stack", i)
-                        q.put(i)
-                        if i == endWord:
-                            return dist+1
-                        del wordstack[i]
+                q_word = q.get()
+                for index, letter in enumerate(q_word):
+                    pre = q_word[:index]
+                    suff = ""
+                    if index < len(q_word):
+                        suff = q_word[index+1:]
+                    for j in alphabet:
+                        new = pre + j + suff
+                        if new in wordstack:
+                            q.put(new)
+                            if new == endWord:
+                                return dist+1
+                            del wordstack[new]
             dist+=1
         return 0
 
@@ -43,5 +36,5 @@ c = "miss"
 w = ["most","mist","miss","lost","fist","fish"]
 b = 'hit'
 c = 'cog'
-w = ["hot","dot","cot","lot","log"]
+w = ["hot","dot","dog","lot","log", "cog", 'hog']
 print(a.ladderLength(b, c, w))
