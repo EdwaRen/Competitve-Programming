@@ -1,4 +1,4 @@
-import Queue
+import collections
 
 class TreeNode(object):
     def __init__(self, x):
@@ -10,25 +10,24 @@ class TreeNode(object):
 class Solution(object):
 
     def levelOrder(self, node):
-        if node == None:
+        if not node:
             return []
-        q = Queue.Queue()
-        q.put(node)
-        res = [[node.val]]
-        while q.empty() == False:
-            cur_level = q.qsize()
-            level_list = []
-            for i in range(cur_level):
-                cur = q.get()
-                if cur.left != None:
-                    q.put(cur.left)
-                    level_list.append(cur.left.val)
-                if cur.right != None:
-                    q.put(cur.right)
-                    level_list.append(cur.right.val)
-            if level_list != []:
-                res.append(level_list)
+        q = collections.deque([(node, 0)])
+        res = []
+        while q:
+            p = q.popleft()
+            cur, index = p[0], p[1]
+
+            if cur.left:
+                q.append((cur.left, index+1))
+            if cur.right:
+                q.append((cur.right, index+1))
+            if index >= len(res):
+                res.append([cur.val])
+            else:
+                res[index].append(cur.val)
         return res
+
 
 s = Solution()
 a = TreeNode(3)
@@ -39,11 +38,11 @@ e = TreeNode(7)
 f = TreeNode(2)
 g = TreeNode(1)
 a.left = b
-# b.left = TreeNode(4)
+b.left = TreeNode(4)
 a.right = c
 c.left = d
 c.right = e
 # e.right = f
 # f.left = g
 
-print(s.levelOrder(a))
+print(s.levelOrder(None))
