@@ -6,41 +6,40 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def recurse(self, node):
-        if node == None:
-            return (None, None)
 
+    def inOrderTraverse(self, root):
+        if root == None:
+            return true
+        stack = []
+        prev = None
+        while root != None or len(stack) > 0:
+            while root != None:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            if (prev != None and root != None and root.val <= prev.val):
+                return False
+            prev = root
+            root = root.right
+        return True
 
-        small = self.recurse(node.left)
-
-        
-
-        big = self.recurse(node.right)
-        # if small[1] == False or big[1] == False:
-        #     return (node.val, False)
-        #
-        # if small[1] == None and big[1] == None:
-        #     return (node.val, True)
-        # if small[1] != None and small[0] >= node.val:
-        #     return (node.val, False)
-        # if big[1] != None and big[0] <= node.val:
-        #     return (node.val, False)
-        # return (node.val, True)
 
     def isValidBST(self, root):
-        return (self.recurse(root)[1] != False)
+        return self.inOrderTraverse(root)
 
 
-a = TreeNode(10)
-b = TreeNode(5)
-c = TreeNode(1)
-d = TreeNode(1)
-e = TreeNode(1)
+a = TreeNode(4)
+b = TreeNode(1)
+c = TreeNode(6)
+d = TreeNode(5)
+e = TreeNode(11)
+f = TreeNode(2)
 a.left = b
 a.right = c
 c.left = d
-# c.right = e
+c.right = e
+e.left = f
 
 s = Solution()
-p = s.isValidBST(c)
+p = s.isValidBST(a)
 print(p)
