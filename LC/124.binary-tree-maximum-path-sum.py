@@ -4,39 +4,39 @@ class TreeNode(object):
         self.val = x
         self.left = None
         self.right = None
-        self.sumleft = 0
-        self.sumright = 0
         node_sum = 0
 
 class Solution(object):
     def maxPathSum(self, root):
-        nodes_seen = {}
 
         def recurse(cur):
-            # if cur in nodes_seen:
-            #     return nodes_seen[cur]
             if not cur:
                 return 0
-            # candidate_sum = cur.val + max(cur.right.node_sum, cur.left.node_sum)
-            child_max = max(cur.right.node_sum, cur.left.node_sum)
-            candidate_sum = cur.val + child_max
+            r = recurse(cur.right)
+            l = recurse(cur.left)
+            self.max = max(self.max, cur.val + l + r)
+            return max(cur.val, cur.val + max(l, r), 0)
 
-            if candidate_sum > cur.val:
-                return candidate_sum
-            else:
-                if cur.val < child_max:
-                    return 0
-                elif candidate_sum < 0:
-                    return 0
-                elif child_max < 0 and cur.val > 0:
-                    return cur.val
-                elif child_max >= 0 and cur.val >= 0:
-                    return candidate_sum
-                elif
+        self.max = root.val
+        recurse(root)
+        return self.max
 
+z = Solution()
 
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        
+a = TreeNode(12)
+b = TreeNode(-15)
+c = TreeNode(20)
+d = TreeNode(15)
+# d.val = -35
+e = TreeNode(7)
+# e.val = -7
+
+a.left = b
+a.right = c
+
+c.left = d
+c.right = e
+
+f = TreeNode(0)
+
+print(z.maxPathSum(c))
