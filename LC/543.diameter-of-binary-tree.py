@@ -13,18 +13,27 @@ class Solution:
 
         # Set global max
         self.max_len = 0
+
+        # Recurse
         self.recurse(root)
+
+        # self.max_len returns max number of nodes, max path is just one less
         return self.max_len -1
 
     def recurse(self, root):
+        # Handle None case
         if not root:
             return 0
+
+        # Recurse left and right
         left = self.recurse(root.left)
         right = self.recurse(root.right)
-        print(root)
-        print(root.val)
+
+        # Set max_len
         if left+right +1 > self.max_len:
             self.max_len = left+right+1
+
+        # Return whichever side is bigger, +1 for current node
         root.val = max(left, right) + 1
         return root.val
 
