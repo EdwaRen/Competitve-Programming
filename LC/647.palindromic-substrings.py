@@ -12,12 +12,12 @@ def countSubstrings(S):
         Z = [0] * len(A)
         center = right = 0
         print("entering loop")
-        for i in xrange(1, len(A) - 1):
-            print("iter ", i, Z[i], right)
+        for i in range(1, len(A) - 1):
+            print("iter ", i, Z, right, center)
             if i < right:
                 print("right activated")
                 Z[i] = min(right - i, Z[2 * center - i])
-            print(Z[i])
+            print(Z[i], A)
             while A[i + Z[i] + 1] == A[i - Z[i] - 1]:
                 Z[i] += 1
             print(Z[i], A[i])
