@@ -1,0 +1,43 @@
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    def flatten(self, root):
+        self.flattenRecurse(root, None)
+
+    def flattenRecurse(self, root, prev):
+        if root is None:
+            return prev
+
+        prev = self.flattenRecurse(root.right, prev)
+        prev = self.flattenRecurse(root.left, prev)
+
+        #temp_left.next = root.right
+
+        root.right = prev
+        root.left= None
+        prev = root
+        return prev
+
+z = Solution()
+a = TreeNode(1)
+b = TreeNode(2)
+c = TreeNode(5)
+d = TreeNode(3)
+e = TreeNode(4)
+f = TreeNode(6)
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+z.flatten(a)
+while a != None:
+    print(a.val)
+    a = a.right
