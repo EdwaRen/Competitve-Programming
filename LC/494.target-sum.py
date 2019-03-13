@@ -1,18 +1,36 @@
 class Solution:
     def findTargetSumWays(self, nums, S):
-        p_sum = sum(nums) + s     
-        if p_sum & 1:
-            return 0
-        p_sum = p_sum >> 1
 
-        dp = [0] * (sum(nums) + 1)
+        # Calculate the positive sum
+        p_sum = sum(nums) - S
         
-        for i in range(1, len(nums)):
-            local_sum = 0
-            for j in reverse(i):
-                local_sum +=j
-                dp[local_sum] +=1 
-                
+        # Handle edge cases. Question guarantees sum < 1000
+        if p_sum % 2 == 1 or S > 1000:
+            return 0
+        elif p_sum < 2:
+            p_sum = sum(nums) + S
+
+        # Get positive sum knowing there will be no remainder
+        p_sum = int(p_sum/2)
+
+        # Init dp array. The DP holds the possibilities to achieve a certain sum
+        dp = [0] * (p_sum+1)
+        dp[0] = 1
+        
+        # Iterate through all nums
+        for i in nums:
+        
+            # Iterate through all possible sums
+            for j in reversed(range(p_sum+1)):
+                if j - i >= 0:
+                    dp[j] += dp[j-i]
+        return dp[p_sum]
+
+
+z = Solution()
+nums = [1]
+s = 1
+print(z.findTargetSumWays(nums, s))
 
 
 
