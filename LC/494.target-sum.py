@@ -1,5 +1,6 @@
 class Solution:
     def findTargetSumWays(self, nums, S):
+
         # Calculate the positive sum
         p_sum = sum(nums) - S
         
@@ -30,8 +31,6 @@ z = Solution()
 nums = [1]
 s = 1
 print(z.findTargetSumWays(nums, s))
-
-
 
 
 
