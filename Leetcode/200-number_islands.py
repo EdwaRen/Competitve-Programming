@@ -54,6 +54,7 @@ class Solution(object):
                         self.union(parent, (row*M) + col, (row*M) + col-1)
                     if col+1 < len(grid[row]) and grid[row][col+1] == "1":
                         self.union(parent, (row*M) + col, (row*M) + col+1)
+                        
         return self.count
 
 z = Solution()
