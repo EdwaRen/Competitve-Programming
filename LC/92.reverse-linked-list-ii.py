@@ -19,13 +19,12 @@ class Solution(object):
 
         # Orig and jump keep track of the first node
         # Jump gets modified on the first pass then forgotten about, but orig keeps the first node
-        before = jump = ListNode(-1)
+        orig = jump = ListNode(-1)
         jump.next = head
 
         while cur and cur.next:
             # Swap m to nth element
 
-            
             while count >= m and count < n and cur.next:
                 # Swap elements iteratively
                 pre.next, cur.next.next, cur.next = cur.next, pre.next, cur.next.next
