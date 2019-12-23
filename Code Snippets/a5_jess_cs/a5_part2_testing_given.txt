@@ -1,0 +1,155 @@
+>>> r1=Rectangle(Point(), Point(1,1), "red")
+>>> r1
+Rectangle(Point(0,0),Point(1,1),'red')
+>>> r1.get_color()
+'red'
+>>> r1.get_bottom_left()
+Point(0,0)
+>>> r1.get_top_right()
+Point(1,1)
+>>> r1.reset_color("blue")
+>>> r1.get_color()
+'blue'
+>>> r1
+Rectangle(Point(0,0),Point(1,1),'blue')
+>>> r1.move(2,3)
+>>> r1
+Rectangle(Point(2,3),Point(3,4),'blue')
+>>>
+>>> print(r1)
+I am a blue rectangle with bottom left corner at (2, 3) and top right corner at (3, 4).
+>>>
+>>> r2=eval(repr(r1))
+>>> r2
+Rectangle(Point(2,3),Point(3,4),'blue')
+>>>
+>>> r1 is r2
+False
+>>> r1==r2
+True
+>>> r3=Rectangle(Point(), Point(2,1), "red")
+>>> r3.get_perimeter()
+6
+>>> r4=Rectangle(Point(1,1), Point(2,2.5), "blue")
+>>> r4.get_area()
+1.5
+>>> r5=Rectangle(Point(1,1), Point(2,2.5), "blue")
+>>> r4 == r5
+True
+>>> r4 is r5
+False
+>>> 
+>>>
+>>> r=Rectangle(Point(1,1), Point(2,5), "blue")
+>>> r.contains(1.5,1)
+True
+>>> r.contains(2,2)
+True
+>>> r.contains(0,0)
+False
+>>>
+>>>
+>>>
+>>> =============================================== RESTART ==================================
+>>> 
+>>> 
+>>> r1=Rectangle(Point(1,1), Point(2,2), "blue")
+>>> r2=Rectangle(Point(2,2.5), Point(3,3), "blue")
+>>> r3=Rectangle(Point(1.5,0),Point(1.7,3),"red")
+>>>
+>>> print(r3)
+I am a red rectangle with bottom left corner at (1.5, 0) and top right corner at (1.7, 3).
+>>>
+>>>
+>>> r1.intersects(r2)
+False
+>>> r2.intersects(r1)
+False
+>>> r1.intersects(r3)
+True
+>>> r2.intersects(r3)
+False
+>>>
+>>>
+>>> =============================================== RESTART ===================================
+>>> 
+>>> c=Canvas()
+>>> len(c)
+0
+>>> r1=Rectangle(Point(1,1), Point(2,2), "blue")
+>>> r2=Rectangle(Point(2,2.5), Point(3,3), "blue")
+>>> r3=Rectangle(Point(1.5,0),Point(1.7,3),"red")
+>>> c.add_one_rectangle(r1)
+>>> c.add_one_rectangle(r2)
+>>> c.add_one_rectangle(r3)
+>>> c.add_one_rectangle( Rectangle(Point(0,0),Point(100,100),"orange") )
+>>> len(c)
+4
+>>> c
+Canvas([Rectangle(Point(1,1),Point(2,2),'blue'), Rectangle(Point(2,2.5),Point(3,3),'blue'), Rectangle(Point(1.5,0),Point(1.7,3),'red'), Rectangle(Point(0,0),Point(100,100),'orange')])
+>>>
+>>>
+>>>
+>>> c.count_same_color("blue")
+2
+>>> c.count_same_color("red")
+1
+>>> c.count_same_color("purple")
+0
+>>>
+>>> =============================================== RESTART ===================================
+>>> 
+>>> c=Canvas()
+>>> r1=Rectangle(Point(1,1), Point(2,2), "blue")
+>>> r2=Rectangle(Point(1,1), Point(4,4), "blue")
+>>> r3=Rectangle(Point(-2,-2), Point(-1,-1), "blue")
+>>> c.add_one_rectangle(r1)
+>>> c.add_one_rectangle(r2)
+>>> c.add_one_rectangle(r3)
+>>> c.total_perimeter()
+20
+>>>
+>>> =============================================== RESTART =================================
+>>> 
+>>> 
+>>> c=Canvas()
+>>> r1=Rectangle(Point(1,1), Point(2,2), "blue")
+>>> r2=Rectangle(Point(1,1), Point(4,4), "blue")
+>>> r3=Rectangle(Point(-2,-2), Point(-1,-1), "blue")
+>>> r4=Rectangle(Point(0,-100),Point(1,100), "yellow")
+>>> c.add_one_rectangle(r1)
+>>> c.add_one_rectangle(r2)
+>>> c.add_one_rectangle(r3)
+>>> c.add_one_rectangle(r4)
+>>> c.min_enclosing_rectangle()
+Rectangle(Point(-2,-100),Point(4,100),'red')
+>>>
+>>> =============================================== RESTART ===================================
+>>> 
+>>> c=Canvas()
+>>> r1=Rectangle(Point(1,1), Point(2,2), "blue")
+>>> r2=Rectangle(Point(1.5,1.5), Point(4,4), "blue")
+>>> r3=Rectangle(Point(-2,-2), Point(2,1.5), "blue")
+>>> r4=Rectangle(Point(0,-100),Point(1.5,100), "yellow")
+>>> c.add_one_rectangle(r1)
+>>> c.add_one_rectangle(r2)
+>>> c.add_one_rectangle(r3)
+>>> c.add_one_rectangle(r4)
+>>> c.common_point()
+True
+>>> 
+>>> =============================================== RESTART ===================================
+>>> 
+>>> c=Canvas()
+>>> r1=Rectangle(Point(-2,-2), Point(-1,2), "blue")
+>>> r2=Rectangle(Point(-2,-2), Point(2,-1), "blue")
+>>> r3=Rectangle(Point(1,-2), Point(2,2), "blue")
+>>> r4=Rectangle(Point(-2,1), Point(2,2), "blue")
+>>> c.add_one_rectangle(r1)
+>>> c.add_one_rectangle(r2)
+>>> c.add_one_rectangle(r3)
+>>> c.add_one_rectangle(r4)
+>>> c.common_point()
+False
+>>> 
+

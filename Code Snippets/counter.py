@@ -7,5 +7,7 @@ import collections
 
 # Counts number of unique characters
 dict_t = collections.Counter("aaabc")
+print(dict_t)
+print(dict_t['d'])
 required = len(dict_t)
 print(required)
