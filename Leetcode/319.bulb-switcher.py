@@ -6,6 +6,7 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
+        # Only squares have odd number of factors. Thus just return # of squares below n
         return int(math.sqrt(n))
 
 z = Solution()
