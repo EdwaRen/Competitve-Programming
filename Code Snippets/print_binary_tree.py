@@ -4,11 +4,11 @@ def binaryPrint(cur, d):
         return
 
     if cur.right != None:
-        ret += printPreorder(cur.right, d + 4)
+        ret += binaryPrint(cur.right, d + 4)
 
     ret += "\n" + (" " * d) + str(cur.val)
 
     if cur.left != None:
-        ret += printPreorder(cur.left, d + 4)
+        ret += binaryPrint(cur.left, d + 4)
 
     return ret

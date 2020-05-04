@@ -19,11 +19,13 @@ def test_local_list():
 test_local_list()
 # Returns [1]
 
+print("testing local list and local def")
 def test_local_list_action():
-    x = [1]
-    def inner(x):
-        x.append(2)
-    inner(x)
+    x = 1
+    def inner():
+        nonlocal x
+        x = 2
+    inner()
     print(x)
 
 test_local_list_action()
