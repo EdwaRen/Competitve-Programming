@@ -1,57 +1,40 @@
 class Solution(object):
     def addOperators(self, num, target):
-        """
-        :type num: str
-        :type target: int
-        :rtype: List[str]
-        """
+
         self.res = []
 
-        def recurse(cur_sum, prev, current, index, op_string, target, num):
-            if index >= len(num):
-                if cur_sum  == target:
-                    self.res.append(op_string)
-            else:
-                current = 0
+        def recurse(cur_sum, prev, str_val, index, num, target):
 
-                # Go through every possible multi digit operand
-                for subindex in range(index, len(num)):
+            # Base case
+            if cur_sum == target and index == len(num):
+                self.res.append(str_val[1:])
 
-                    # current value
-                    current = current*10 + int(num[subindex])
+            cur_val = 0
+            for sub in range(index, len(num)):
+                cur_val = cur_val*10 + int(num[sub])
+                
+                # Always recurse for addition
+                recurse(cur_sum+cur_val, cur_val, str_val + "+" + str(cur_val),  sub+1, num, target)
+                
+                # Only recurse for sub/multi if not the first number
+                if index > 0:
+                    recurse(cur_sum-cur_val, -cur_val, str_val + "-" + str(cur_val), sub+1, num, target)
+                    recurse(cur_sum-prev + (prev*cur_val), prev*cur_val, str_val + "*" + str(cur_val), sub+1, num, target)
+                
+                # Handle edge case, multi digit number cannot start with zero
+                if index == sub and num[index] == '0':
+                    break 
 
-                    # Handle first case
-                    if index == 0:
-                        recurse(current, current, 0, subindex+1, str(current), target, num)
-                    else:
+        recurse(0, 0, '', 0, num, target)
 
-                        # Addition + subtraction
-                        recurse(cur_sum + current, current, 0, subindex+1, op_string + '+' + str(current), target, num)
-                        recurse(cur_sum - current, -current, 0, subindex+1, op_string + '-' + str(current), target, num)
-
-                        # Mult 
-                        recurse(cur_sum - prev + (prev * current), prev * current, 0, subindex+1, op_string + '*' + str(current), target, num)
-
-                    # Handle case of 00+2 or 01+5
-                    if current == 0:
-                        break
-
-        recurse(0, 0, 0, 0, '', target, num)
         return self.res 
-        
-z = Solution()
-num = '232'
-target = 8
 
+def addOperators(num, target):
+    z = Solution()
+    return(z.addOperators(num, target))
 
-# num = "3456237490"
-# target = 9191
+# num = "105"
+num = "3456237490"
+target = 9191
+print(addOperators(num, target))
 
-# num = '105'
-# target = 5
-
-num = '000'
-target = 0
-
-print(z.addOperators(num, target))
-        
