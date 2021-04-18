@@ -1,17 +1,19 @@
 class Solution:
     def letterCombinations(self, digits):
-        mapping = ["0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
-        comb = ['']
-        for num in digits:
-            tempcomb = ['']
-            for letter in mapping[int(num)]:
-                for index in range(len(comb)):
-                    tempcomb.append(comb[index] + letter)
-            comb = tempcomb[:]
-            comb.pop(0)
-        if comb[0] == '':
-            comb.pop(0)
-        return comb
+        if not digits: return ''
 
-a = Solution()
-print(a.letterCombinations(""))
+        mapping = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        res = []
+        self.dfs(digits, res, '', mapping)
+        return res
+
+    def dfs(self, digits, res, cur, mapping):
+        if not digits:
+            res.append(cur)
+            return 
+        for c in mapping[int(digits[0])]:
+            self.dfs(digits[1:], res, cur + c, mapping)
+
+z = Solution()
+digits = ""
+print(z.letterCombinations(digits))
