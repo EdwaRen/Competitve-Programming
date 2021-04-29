@@ -5,6 +5,9 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: int
+
+        Use a modified version of Quickslect to find the median. 
+        Then sum up every element with its absolute difference from the median
         """
 
         def partition(data, pivot):
