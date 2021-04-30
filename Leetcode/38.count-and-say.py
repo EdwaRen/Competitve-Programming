@@ -28,7 +28,6 @@ class Solution(object):
             updated_res = ''
             for k, v in groupby(res):
                 updated_res += str(len(list(v))) + str(k)
-            print(res)
             res = updated_res
         return res
 
