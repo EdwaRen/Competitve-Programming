@@ -1,35 +1,39 @@
-class Solution:
+class Solution(object):
     def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        Two sum using two pointers
+        Another possible solution is to use Hashsets. However two pointer is more flexible 
+        in case we want a similar question like 3SumSmaller
+        """
+        res = []
         nums = sorted(nums)
-        zero_sums = []
-        nums_unique = set(nums)
-        for index in range(len(nums)):
-            if index > 0 and nums[index] == nums[index-1]:
-                continue
-            left = index
-            right = len(nums)-1
-            while left != right and left < right:
-                if index == left:
-                    left+=1
-                    continue
-                elif index == right:
-                    right-=1
-                    continue
-                sum = nums[index] + nums[left] + nums[right]
+        for i, val1 in enumerate(nums):
+            if val1 > 0:
+                break
+            if i == 0 or nums[i] != nums[i-1]:
+                self.twoSum(i, nums, res)
+        return res
 
-                if sum == 0:
-                    zero_sums.append([nums[index], nums[left], nums[right]])
-                    while left+1 < len(nums) and nums[left] == nums[left+1]:
-                        left+=1
-                    while right > 0 and nums[right] == nums[right-1]:
-                        right-=1
-                    left+=1
-                    right-=1
-                elif sum < 0:
-                    left+=1
-                elif sum > 0:
-                    right-=1
-        return zero_sums
+    def twoSum(self, i, nums, res):
+        lo = i+1
+        hi = len(nums)-1
+        
+        while lo < hi:
+            summed = nums[i] + nums[lo] + nums[hi]
+            if summed > 0:
+                hi-=1
+            elif summed < 0:
+                lo+=1
+            else:
+                res.append([nums[i], nums[lo], nums[hi]])
+                lo+=1
+                hi-=1
+                while lo < hi and nums[lo] == nums[lo-1]:
+                    lo+=1
 
 a = Solution()
-print(a.threeSum([-1,0,1,2,-1,-4]))
+b = [-1, 0, 1, 2, -1, -4]
+b = [-2, 0, 1, 1, 2]
+print(a.threeSum(b))

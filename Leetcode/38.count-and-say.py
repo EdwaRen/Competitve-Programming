@@ -1,34 +1,38 @@
+from itertools import groupby
+
 class Solution(object):
     def countAndSay(self, n):
-        # res is the code after every iteration from 1 - n
+        """
+        :type n: int
+        :rtype: str
+        Solution 1) Brute force generation:
+
+            res = '1'
+            for i in range(1, n):
+                count = 1
+                updated_res = ''
+                for j in range(len(res)):
+                    if j+1 < len(res) and res[j] == res[j+1]:
+                        count+=1
+                    else:
+                        updated_res += str(count) + res[j]
+                        count = 1
+                res = updated_res
+            return res
+
+        Solution 2) Using Python's Itertools.groupby function:
+        """
+
         res = '1'
-
-        # Generate the code n times
-        for j in range(n-1):
-            
-            # Keep track of new code
-            cur = '' 
-            count = 1
-       
-            # Generate the code for the current number
-            for i in range(len(res)):
-                
-                # res[i] and res[i+1] checks for consecutive equal numbers
-                if i+1 < len(res) and res[i] == res[i+1]:
-                    count+=1
-
-                # non-consecutively equal numbers, new data appended to cur
-                else:
-                    cur+= str(count) + res[i]
-                    count = 1
-
-            # Update res variable
-            res = cur
-
+        for _ in range(1, n):
+            updated_res = ''
+            for k, v in groupby(res):
+                updated_res += str(len(list(v))) + str(k)
+            res = updated_res
         return res
 
-# z = Solution()
-# n = 5
-# print(z.countAndSay(n))
+z = Solution()
+n = 6
+print(z.countAndSay(n))
 
 
