@@ -11,3 +11,7 @@ print(dict_t)
 print(dict_t['d'])
 required = len(dict_t)
 print(required)
+
+z = [1, 1, 2, 3, 4, 4, 5]
+print(collections.Counter(z))
+print(1 in z)
