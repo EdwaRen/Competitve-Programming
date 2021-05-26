@@ -1,25 +1,20 @@
+import collections
+
 class Solution:
-    def leastInterval(self, tasks, n):
-        most_common = 0
-        letter_count = [0] * 26
-        print(letter_count)
-        for i in tasks:
-            char_id = ord(i)-65
-            print(char_id)
-            letter_count[char_id]+=1
-            if letter_count[char_id] > most_common:
-                most_common = letter_count[char_id]
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        # Mathy solution
+        # Generate busy and idle times using (n+1) * (most_frequent-1) items
+        # If there are more tasks than spaces, they are guaranteed to fit into the generated
+        # slots (think of ABC_AB__A...)
+        # If there are less tasks than spaces, the number of elements with the same
+        # max frequency gets added the the spaces count
+        # Otherwise a solution would be to go through all frequencies and manually
+        # decrement idle time
+        freqs = collections.Counter(tasks)
+        sorted_freqs = freqs.most_common()
+        
+        most_common = sorted_freqs[0][1]
+        most_common_count = list(freqs.values()).count(most_common)
 
-        open_spaces = (most_common-1)*n
-
-        if len(tasks) > open_spaces + most_common:
-            return len(tasks)
-        else:
-            res = open_spaces+most_common
-            for i in range(0, 26):
-                if letter_count[i] == most_common:
-                    res+=1
-            return res -1
-
-a = Solution()
-print(a.leastInterval(["A","A","A","B", "C", "D", "E", "F"], 2))
+        print(n, most_common, most_common_count)
+        return max(len(tasks), (n+1) * (most_common-1) + most_common_count)

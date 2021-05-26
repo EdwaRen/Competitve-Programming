@@ -1,10 +1,41 @@
 import collections 
 
-class TrieNode(object):
-    def __init__(self):
-        self.children = collections.defaultdict(TrieNode)
-        self.isWord = False
-
+class TrieNode():
+    def __init__(self, next=None):
+        self.is_word = False
+        self.next = collections.defaultdict(TrieNode)
+        
+    def addWord(self, word):
+        # Recursively add word using defaultdict(TrieNode)
+        cur = self
+        for chr in word:
+            cur = cur.next[chr]
+            
+        # Mark this node as a complete word
+        cur.is_word = True
+            
+    def findWord(self, word):
+        cur = self
+        for i in range(len(word)):
+            
+            # character exists, match
+            if word[i] in cur.next:
+                cur = cur.next[word[i]]
+                
+            # If there's a dot, try all possible child nodes with DFS + backtracking
+            elif word[i] == '.':
+                for node in cur.next.values():
+                    if node.findWord(word[i+1:]):
+                        return True
+                return False
+            
+            else:
+                return False
+            
+        # Check that the word is complete
+        return cur.is_word
+        
+        
 class WordDictionary(object):
 
     def __init__(self):
@@ -16,55 +47,22 @@ class WordDictionary(object):
 
     def addWord(self, word):
         """
-        Adds a word into the data structure.
         :type word: str
         :rtype: None
         """
-        cur = self.root
-
-        # Leverages get_or_create of defaultdict to easily make our Trie
-        for letter in word:
-            cur = cur.children[letter]
-        cur.isWord = True
+        self.root.addWord(word)
+        
 
     def search(self, word):
         """
-        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
         :type word: str
         :rtype: bool
         """
+        return self.root.findWord(word)
+        
 
-        # DFS through the Trie
-        def dfs(index, word, node):
-            if index >= len(word):
-                # print("END", node.__dict__)
-                return node.isWord
-
-            if word[index] == '.':
-                # Recurse through all of the current node's children if period found
-                res = False
-                for key, value in node.children.items():
-                    res = res or dfs(index+1, word, value)
-                return res
-            else:
-                if word[index] not in node.children:
-                    return False
-                return dfs(index+1, word, node.children[word[index]])
-
-        return dfs(0, word, self.root)
 
 # Your WordDictionary object will be instantiated and called as such:
-z = WordDictionary()
-z.addWord('a')
-# z.root
-z.addWord('ab')
-# z.addWord('mad')
-
-# res1 = z.search('pad')
-# res2 = z.search('bad')
-# res3 = z.search('.ad')
-res4 = z.search('ab')
-# print(res1)
-# print(res2)
-# print(res3)
-print(res4)
+# obj = WordDictionary()
+# obj.addWord(word)
+# param_2 = obj.search(word)

@@ -1,48 +1,33 @@
 import collections
 
 class Solution(object):
-
-    def find(self, parents, loc):
-        if parents[loc] != loc:
-            parents[loc] = parents[parents[loc]]
-            return self.find(parents, parents[loc])
-        return loc 
-
-    def union(self, parents, loc1, loc2):
-        rootA = self.find(parents, loc1)
-        rootB = self.find(parents, loc2)
-
-        parents[rootA] = rootB
-
-
+    def find(self, parents, email):
+        if parents[email] != email:
+            parents[email] = self.find(parents, parents[email])
+        return parents[email]
+    
+    def union(self, parents, email_a, email_b):
+        parents[self.find(parents, email_a)] = self.find(parents, email_b)
+    
     def accountsMerge(self, accounts):
         """
         :type accounts: List[List[str]]
         :rtype: List[List[str]]
+        Union find solution to link two disjoint sets in ~O(1)
         """
-
-        parents = [i for i in range(10001)]
-        email_id = collections.defaultdict(int)
-        email_name = collections.defaultdict(str)
-        ans = collections.defaultdict(list)
-
-        for index in range(len(accounts)):
-            acc = accounts[index]
+        parents = collections.defaultdict(str)
+        email_to_name = collections.defaultdict(str)
+        for i in range(len(accounts)):
+            user_acc = accounts[i]
+            for acc in user_acc[1:]:
+                email_to_name[acc] = user_acc[0]
+                if acc not in parents: parents[acc] = acc
+                self.union(parents, acc, user_acc[1])
+                
+        linked_emails = collections.defaultdict(list)
+        for email in parents.keys():
+            linked_emails[self.find(parents, email)].append(email)
             
-            for email in acc[1::]:
-                email_name[email] = acc[0]
-                if email not in email_id:
-                    email_id[email] = index
-                self.union(parents, email_id[acc[1]], email_id[email])
+        return [[email_to_name[email]] + sorted(others) for email, others in linked_emails.iteritems()]
         
-        for email, ident in email_id.items():
-            ans[self.find(parents, ident)].append(email)
-
-        return [ [ email_name[value[0]]] + sorted(value) for key, value in ans.items()]
-   
-
-z = Solution() 
-accounts = [["John", "johnsmith@mail.com", "john00@mail.com"], ["John", "johnnybravo@mail.com"], ["John", "johnsmith@mail.com", "john_newyork@mail.com"], ["Mary", "mary@mail.com"]]
-res = z.accountsMerge(accounts)
-print(res)
-
+        

@@ -1,24 +1,24 @@
 class Solution(object):
     def trap(self, height):
-        left = 0
-        right = len(height)-1
-        right_max = 0
-        left_max = 0
-        ans=0
+        """
+        :type height: List[int]
+        :rtype: int
+        Two pointers, traveling both sides and recording max height of water
+        """
+        if len(height) < 1: return 0
+        
+        max_left, max_right = 0, 0
+        left, right = 0, len(height)-1
+        water_filled = 0
+        
         while left <= right:
-            if height[left] < height[right]:
-                if height[left] >= left_max:
-                    left_max = height[left]
-                else:
-                    ans+=left_max - height[left]
-                left+=1
+            if max_left <= max_right:
+                max_left = max(max_left, height[left])
+                water_filled += max_left - height[left]
+                left += 1
             else:
-                if height[right] >= right_max:
-                    right_max = height[right]
-                else:
-                    ans+= right_max-height[right]
-                right-=1
-        return ans
-
-a = Solution()
-print(a.trap([0, 1,0, 2, 1, 0,1, 3, 2, 1, 2, 1]))
+                max_right = max(max_right, height[right])
+                water_filled += max_right - height[right]
+                right -= 1
+                
+        return water_filled

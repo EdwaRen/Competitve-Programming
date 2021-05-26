@@ -1,68 +1,46 @@
-import math
-import heapq 
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        # Find euclidean distances
+        distance_points = [(self.find_euclidean(point, [0, 0]), point[0], point[1]) for point in points]
+        
+        # Quickselect to sort the distance points
+        self.quickselect(distance_points, 0, len(distance_points)-1, k)
+        return [[i[1], i[2]] for i in distance_points[:k]]
+            
+        
+    def find_euclidean(self, x, y):
+        return ((x[0] - y[0])**2 + (x[1] - y[1])**2)**0.5   
+        
+    def quickselect(self, distances, lo, hi, k):
+        
+        if k >= len(distances): return
+        
+        # Partition based on the last index, return index of where the last item fits
+        index = self.partition(distances, lo, hi, k)
+        
+        # Quickselect with global index values
+        if index == k:
+            return
+        elif index < k:
+            self.quickselect(distances, index+1, hi, k)
+        elif index > k:
+            self.quickselect(distances, lo, index-1, k)
+            
+    def partition(self, distances, lo, hi, k):
+        
+        pivot = hi
+        left = lo
+        
+        # Quickselect from lo to hi, move elements only if they are less than pivot
+        for cur in range(lo, hi):
+            if distances[cur][0] <= distances[pivot][0]:
+                distances[left], distances[cur] = distances[cur], distances[left]
+                left+=1
 
-class Solution(object):
-    def kClosest(self, points, K):
-        """
-        :type points: List[List[int]]
-        :type K: int
-        :rtype: List[List[int]]
-        """
+        # Put the pivot in its place
+        distances[left], distances[pivot] = distances[pivot], distances[left]
+                
+        return left
 
-
-        """
-        Partition algorithm to find Kth largest element and sorts elements before and after relative to K
-        """
-        def partition(points, l, r):
-
-            # Find euclid distance
-            def euclid_dist(point):
-                return point[0]**2 + point[1]**2
-
-            # Initialize pivot_index to always be right-most point
-            x = euclid_dist(points[r])
-            i = l 
-
-            # partitioning, swap when element smaller than pivot_index is found
-            # x is still untouched
-            for j in range(l, r):
-                if euclid_dist(points[j]) <= x:
-                    points[i], points[j] = points[j], points[i]
-                    i += 1
-
-            # swap x back in place
-            points[i], points[r] = points[r], points[i]
-            return i
-
-        """
-        Finds Kth largest element by index, array is sorted by before/after K.
-        Since elements before K are not sorted, this is still O(n)
-        """
-        def select(points, l, r, k):
-            # Handle some edge cases
-            if k >= len(points):
-                return k
-
-            # Get initial partition
-            index = partition(points, l, r)
-
-            # Refine partition each time
-            if index == k:
-                return index
-            elif k < index:
-                return select(points, l, index - 1, k)
-            else:
-                return select(points, index+1, r, k )
-
-        # split_point is the Kth largest point to the origin
-        # Everything before K is guaranteed to be closer to the origin than K
-        split_point = select(points, 0, len(points)-1, K)
-        return points[0:split_point]
-
-
-z = Solution()
-points = [[3,3],[5,-1],[-2,4]]
-k = 2
-print(z.kClosest(points, k))
-
+                
         

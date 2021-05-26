@@ -1,33 +1,18 @@
-class Solution(object):
-    def isAlienSorted(self, words, order):
-        """
-        :type words: List[str]
-        :type order: str
-        :rtype: bool
-        """
-        order_map = {}
-        for index, val in enumerate(order):
-            order_map[val] = index
-
-        for i in range(len(words)-1):
-
-            letter = 0
-            while letter + 1 < min(len(words[i]), len(words[i+1])) and words[i][letter] == words[i+1][letter]:
-                letter += 1
-
-            # Check if tie breaking letter breaks order
-            if order_map[words[i][letter]] > order_map[words[i+1][letter]]:
-                return False
-            # If it's all tied, BUT first element is longer then it is still a fail
-            elif order_map[words[i][letter]] == order_map[words[i+1][letter]] and len(words[i]) > len(words[i+1]):
-                return False
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        # Alien dictionary that maps the order
+        # Go through every two words and check if any pairing fails
+        char_order = {}
+        for idx, val in enumerate(order):
+            char_order[val] = idx
+            
+        for i in range(1, len(words)):
+            for j in range(len(words[i-1])):
+                if j >= len(words[i]):
+                    return False
+                elif char_order[words[i-1][j]] > char_order[words[i][j]]:
+                    return False
+                elif char_order[words[i-1][j]] < char_order[words[i][j]]:
+                    break
 
         return True
-
-        
-
-
-z = Solution()
-words = ["apple","app"]
-order = "abcdefghijklmnopqrstuvwxyz"
-print(z.isAlienSorted(words, order))
